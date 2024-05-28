@@ -84,23 +84,26 @@ function App() {
                 {title}
             </Typography>
             <Grid container spacing={2}>
-                {items.map((item) => (
-                    <Grid item xs={6} sm={4} md={3} lg={2} key={item.id}>
-                        <Card>
-                            <CardContent>
-                                <Avatar
-                                    variant="square"
-                                    src={item.assetPath || item.icon}
-                                    alt={item.name}
-                                    sx={{ width: '100%', height: 'auto' }}
-                                />
-                                <Typography variant="body2" component="div">
-                                    {item.name}
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                ))}
+                {items.map((item) => {
+                    console.log(`${title} - ${item.name}: ${item.assetPath}`);
+                    return (
+                        <Grid item xs={6} sm={4} md={3} lg={2} key={item.id}>
+                            <Card>
+                                <CardContent>
+                                    <Avatar
+                                        variant="square"
+                                        src={item.assetPath || item.icon}
+                                        alt={item.name}
+                                        sx={{ width: '100%', height: 'auto' }}
+                                    />
+                                    <Typography variant="body2" component="div">
+                                        {item.name}
+                                    </Typography>
+                                </CardContent>
+                            </Card>
+                        </Grid>
+                    );
+                })}
             </Grid>
         </>
     );
